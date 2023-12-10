@@ -1,0 +1,25 @@
+- description: "Minimal Natural language query validator"
+  vars:
+    nlq: |
+      list jobs that have run longer than 30 seconds
+  assert:
+    - type: icontains-any
+      value: ["natural", "language", "query", "yes", "is"]
+- description: "Minimal Natural language query validator"
+  vars:
+    nlq: |
+      list 5 users with gmail email
+  assert:
+    - type: icontains-any
+      value: ["natural", "language", "query", "yes", "is", "valid"]
+    - type: llm-rubric
+      value: Response should confirm that query is an NLQ
+- description: "Minimal Natural language query validator"
+  vars:
+    nlq: |
+      wheres my dog
+  assert:
+    - type: icontains-any
+      value: ["no", "is", "not"]
+    - type: llm-rubric
+      value: Response should confirm that query is not an NLQ

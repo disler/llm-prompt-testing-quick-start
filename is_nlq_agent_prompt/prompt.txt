@@ -1,0 +1,12 @@
+Is the following BLOCK_OF_TEXT a SQL Natural Language Query (NLQ)? Please rank from 1 to 5, where:
+1: Definitely not NLQ
+2: Likely not NLQ
+3: Neutral / Unsure
+4: Likely NLQ
+5: Definitely NLQ
+
+Return the rank as a number exclusively using the rank variable to be casted as an integer.
+
+BLOCK_OF_TEXT: {{nlq}}
+
+Respond in this json format {rank: 1-5, passable: true/false} where rank is an integer from 1 to 5, and passable is a boolean. Pass anything greater than 2.

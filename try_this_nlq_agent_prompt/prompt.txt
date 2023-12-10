@@ -1,0 +1,27 @@
+Generate a natural language query given the following TABLE_DEFINITIONS. Ensure
+the natural language query follows the following RULES.
+
+TABLE_DEFINITIONS
+
+{{table_defs}}
+
+RULES
+
+{{rules}}
+---
+Generate a natural language query given the following TABLE_DEFINITIONS. Ensure
+the natural language query follows the following RULES. Use the SAMPLE_RESULTS to
+inform your query.
+
+
+TABLE_DEFINITIONS
+
+{{table_defs}}
+
+RULES
+
+{{rules}}
+
+SAMPLE_RESULTS
+
+{{sample_results}}

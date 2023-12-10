@@ -1,0 +1,12 @@
+- description: "Natural language query validator"
+  vars:
+    nlq: |
+      list 5 users with gmail email
+- description: "Natural language query validator"
+  vars:
+    nlq: |
+      select an authed user
+- description: "Natural language query validator"
+  vars:
+    nlq: |
+      jobs for user 5

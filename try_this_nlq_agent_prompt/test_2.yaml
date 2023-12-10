@@ -1,0 +1,41 @@
+- description: "Generates valid NLQ with sample results"
+  vars:
+    table_defs: |
+      CREATE TABLE users (
+        id SERIAL PRIMARY KEY,
+        created TIMESTAMP NOT NULL,
+        updated TIMESTAMP NOT NULL,
+        authed BOOLEAN NOT NULL,
+        plan TEXT NOT NULL,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL
+      );
+
+      CREATE TABLE jobs (
+        id SERIAL PRIMARY KEY,
+        created TIMESTAMP NOT NULL,
+        updated TIMESTAMP NOT NULL,
+        parentUserId INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        status TEXT NOT NULL,
+        totalDurationMS BIGINT NOT NULL
+      );
+    rules: |
+      - Always include an explicit number of rows to return between 1 and 20.
+      - Limit to a single sentence.
+      - Be short and concise.
+      - Explicitly state the exact name of the table you use in the natural language
+        query.
+    sample_results: |
+      Users:
+      - {"id": 1, "created": "2021-06-13T00:00:00.000Z", "updated": "2021-06-13T00:00:00.000Z", "authed": true, "plan": "free", "name": "John Doe", "email": ""}
+      - {"id": 2, "created": "2021-06-13T00:00:00.000Z", "updated": "2021-06-13T00:00:00.000Z", "authed": true, "plan": "free", "name": "Jane Doe", "email": ""}
+      - {"id": 3, "created": "2021-06-13T00:00:00.000Z", "updated": "2021-06-13T00:00:00.000Z", "authed": true, "plan": "free", "name": "John Smith", "email": ""}
+      Jobs:
+      - {"id": 1, "created": "2021-06-13T00:00:00.000Z", "updated": "2021-06-13T00:00:00.000Z", "parentUserId": 1, "status": "Completed", "totalDurationMS": 1000}
+      - {"id": 2, "created": "2021-06-13T00:00:00.000Z", "updated": "2021-06-13T00:00:00.000Z", "parentUserId": 1, "status": "Failed", "totalDurationMS": 2000}
+      - {"id": 3, "created": "2021-06-13T00:00:00.000Z", "updated": "2021-06-13T00:00:00.000Z", "parentUserId": 2, "status": "Pending", "totalDurationMS": 3000}
+  assert:
+    - type: contains-any
+      value: [users, jobs]
+    - type: llm-rubric
+      value: ensure that the output contains a number

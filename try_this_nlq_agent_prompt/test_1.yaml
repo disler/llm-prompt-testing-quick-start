@@ -1,0 +1,32 @@
+- description: "Generates valid NLQ"
+  vars:
+    table_defs: |
+      CREATE TABLE users (
+        id SERIAL PRIMARY KEY,
+        created TIMESTAMP NOT NULL,
+        updated TIMESTAMP NOT NULL,
+        authed BOOLEAN NOT NULL,
+        plan TEXT NOT NULL,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL
+      );
+
+      CREATE TABLE jobs (
+        id SERIAL PRIMARY KEY,
+        created TIMESTAMP NOT NULL,
+        updated TIMESTAMP NOT NULL,
+        parentUserId INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        status TEXT NOT NULL,
+        totalDurationMS BIGINT NOT NULL
+      );
+    rules: |
+      - Always include an explicit number of rows to return between 1 and 20.
+      - Limit to a single sentence.
+      - Be short and concise.
+      - Explicitly state the exact name of the table you use in the natural language
+        query.
+  assert:
+    - type: contains-any
+      value: [users, jobs]
+    - type: llm-rubric
+      value: ensure that the output contains a number

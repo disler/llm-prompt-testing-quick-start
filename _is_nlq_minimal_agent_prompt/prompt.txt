@@ -1,0 +1,1 @@
+Is the following BLOCK_OF_TEXT a SQL Natural Language Query (NLQ): {{nlq}}

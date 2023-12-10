@@ -1,6 +1,8 @@
 # LLM Evaluation & Testing quick start with Promptfoo
 > Better, Faster, Cheaper Prompts with LLM Testing & Evaluation
 
+![Fast, Cheap, Accurate](imgs/fast-cheap-accurate-prompt-testing-with-promptfoo.png)
+
 ## Setup
 
 - Install promptfoo
@@ -24,6 +26,9 @@
 - Prompts
 - Assertions
 - Variables
+
+## Watch the video tutorial
+Check out the brief [Video Tutorial](https://youtu.be/KhINc5XwhKs) where we highlight the key features of Promptfoo and how to get started with this repo.
 
 ## Use Cases & Value Prop of LLM Testing & Evaluation
 

@@ -1,5 +1,25 @@
 description: "Is NLQ Agent Prompt"
-providers: [openai:gpt-4-1106-preview, openai:gpt-3.5-turbo-1106]
+providers: 
+  - id: openai:gpt-4-1106-preview
+    config:
+      organization: ""
+      temperature: 0.5
+      max_tokens: 1024
+      top_p: 1
+      frequency_penalty: 0
+      presence_penalty: 0
+      response_format: 
+        type: json_object
+  - id: openai:gpt-3.5-turbo-1106
+    config:
+      organization: ""
+      temperature: 0.5
+      max_tokens: 1024
+      top_p: 1
+      frequency_penalty: 0
+      presence_penalty: 0
+      response_format: 
+        type: json_object
 
 defaultTest:
   assert:

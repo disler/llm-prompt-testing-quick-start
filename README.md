@@ -96,8 +96,8 @@ Check out the brief [Video Tutorial](https://youtu.be/KhINc5XwhKs) where we high
 - Explanation: Gemini-Pro has a small to medium sized edge and is likely a better fit for most applications.
 
 #### Pricing Comparison:
-- `Gemini-Pro ⚪️⚪️⚪️⚪️🟢|⚪️⚪️⚪️⚪️⚪️ GPT-3.5 Turbo`
-- Explanation: 
+- `Gemini-Pro ⚪️⚪️⚪️⚪️⚪️|⚪️⚪️⚪️⚪️⚪️ GPT-3.5 Turbo`
+- Explanation: Gemini-Pro is the same price as GPT-3.5 Turbo.
 
 #### Speed:
 - `Gemini-Pro ⚪️🟢🟢🟢🟢|⚪️⚪️⚪️⚪️⚪️ GPT-3.5 Turbo`

@@ -1,12 +1,39 @@
 - description: "Natural language query validator"
   vars:
-    nlq: |
-      list 5 users with gmail email
+    nlq: list 5 users with gmail email
 - description: "Natural language query validator"
   vars:
-    nlq: |
-      select an authed user
+    nlq: select an authed user
 - description: "Natural language query validator"
   vars:
-    nlq: |
-      jobs for user 5
+    nlq: jobs for user 5
+- description: "Natural language query validator"
+  vars:
+    nlq: list user with id 3
+- description: "Natural language query validator"
+  vars:
+    nlq: number of jobs per user
+- description: "Natural language query validator"
+  vars:
+    nlq: which supplier has the highest supplier_ratings?
+- description: "Natural language query validator"
+  vars:
+    nlq: find users with 'Gold' subscription plan
+- description: "Natural language query validator"
+  vars:
+    nlq: list the most recent authed users
+- description: "Natural language query validator"
+  vars:
+    nlq: find jobs with totaldurationms longer than 5
+- description: "Natural language query validator"
+  vars:
+    nlq: select unique user_rules
+- description: "Natural language query validator"
+  vars:
+    nlq: select 10 users
+- description: "Natural language query validator"
+  vars:
+    nlq: newest user
+- description: "Natural language query validator"
+  vars:
+    nlq: order_payments 

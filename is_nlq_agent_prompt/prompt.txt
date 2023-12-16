@@ -9,4 +9,4 @@ Return the rank as a number exclusively using the rank variable to be casted as 
 
 BLOCK_OF_TEXT: {{nlq}}
 
-Respond in this json format {rank: 1-5, passable: true/false} where rank is an integer from 1 to 5, and passable is a boolean. Pass anything greater than 2.
+Respond in this json format {"rank": 1-5, "passable": true/false} where rank is an integer from 1 to 5, and passable is a boolean. Pass anything greater than 2.

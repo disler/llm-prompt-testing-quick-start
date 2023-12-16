@@ -20,9 +20,16 @@ providers:
       presence_penalty: 0
       response_format: 
         type: json_object
+  - id: vertex:gemini-pro
+    config:
+      temperature: 0.5
+      max_tokens: 2048
+
 
 defaultTest:
   assert:
+    - type: regex
+      value: ".+[2345].+"
     - type: is-json
       value: 
         required: [rank, passable]

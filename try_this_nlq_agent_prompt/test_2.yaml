@@ -37,5 +37,5 @@
   assert:
     - type: contains-any
       value: [users, jobs]
-    - type: llm-rubric
-      value: ensure that the output contains a number
+    - type: regex
+      value: ".+[\\d].+"

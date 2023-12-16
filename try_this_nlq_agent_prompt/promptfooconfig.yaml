@@ -1,4 +1,4 @@
 description: "Try This NLQ Agent Prompt"
-providers: [openai:gpt-4-1106-preview, openai:gpt-3.5-turbo-1106]
+providers: [openai:gpt-4-1106-preview, openai:gpt-3.5-turbo-1106, vertex:gemini-pro]
 prompts: prompt.txt
 tests: test*.yaml

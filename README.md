@@ -40,7 +40,7 @@ Check out the brief [Video Tutorial](https://youtu.be/KhINc5XwhKs) where we high
 ## Use Cases & Value Prop of LLM Testing & Evaluation
 
 - 💰 Save Money & Same Time (Resource Optimization)
-  - With LLM testing you cna determine if you need GPT-4 or if you can save money and time with GPT-3
+  - With LLM testing you can determine if you need GPT-4 or if you can save money and time with GPT-3
   - You can find the minimum number of tokens you can use without sacrificing quality
   - Compare different LLM providers to determine which is the best fit for your application
 - 👍 Ship with confidence (Validate Accuracy)

@@ -1,4 +1,5 @@
 description: "Simple NLQ Agent Prompt"
-providers: [openai:gpt-4-1106-preview, openai:gpt-3.5-turbo-1106, vertex:gemini-pro]
+# providers: ["./custom_models/mistral-7b.js", openai:gpt-4-1106-preview, openai:gpt-3.5-turbo-1106, vertex:gemini-pro]
+# providers: ["../custom_models/mistral-7b.js"]
 prompts: prompt.txt
 tests: test*.yaml

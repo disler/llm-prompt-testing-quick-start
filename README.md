@@ -18,6 +18,14 @@
 - cd into the directory you want to test
 - Run `promptfoo eval` to evaluate
 
+### Install llamafile local models
+- Read the instructions here and download the llama files
+  - https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#quickstart
+  - I recommend installing `mistral-7b-instruct-v0.1-Q4_K_M-main.llamafile` for the best results for 4GB models
+- Place the model into the custom_models/ directory
+- Add the path to the model in the ./\*/promptfooconfig.yaml providers section
+- Make sure the name of your model file matches the 
+- QQQ finish this
 
 *If you want to run OpenAI exclusively comment out other models in the ./\*/promptfooconfig.yaml providers section.*
 

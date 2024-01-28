@@ -10,7 +10,7 @@ class Mistral7bV2 extends CustomModelBase {
       // options.config contains any custom options passed to the provider
       this.config = options.config;
 
-      this.model_file_name = "mistral-7b-instruct-v0.2-Q5_K_M-main.llamafile"
+      this.model_file_name = "mistral-7b-instruct-v0.2.Q5_K_M.llamafile"
         
       this.model_short_name = "mistral-7b-inst-v2"
     }
@@ -21,6 +21,13 @@ class Mistral7bV2 extends CustomModelBase {
 
     customizePrompt(prompt) {
         return `[INST]${prompt}[/INST]`
+    }
+
+    customizeParse(rawResponse) {
+        // get everything after [/INST] including new lines
+        const regex = /\[\/INST\](.*)/s;
+        const output = regex.exec(rawResponse)?.[1];
+        return output || rawResponse;
     }
   }
   

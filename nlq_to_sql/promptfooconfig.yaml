@@ -1,43 +1,20 @@
 description: "Is NLQ Agent Prompt"
 providers: 
-  - id: ../custom_models/mistral-7b-v0.1-Q4.js
-    config:
-      temperature: 0.5
-  - id: ../custom_models/mistral-7b-v0.2-Q5.js
-    config:
-      temperature: 0.5
-  - id: ../custom_models/phi-2.Q5_K_M.js
-    config:
-      temperature: 0.5
-  # - id: ../custom_models/rocket-3b.Q5_K_M.js
-  #   config:
-  #     temperature: 0.5
-  # - id: ../custom_models/TinyLlama-1.1B-Chat-v1.0.Q5_K_M.js
-  #   config:
-  #     temperature: 0.5
+  # Cloud LLMs
   # - id: openai:gpt-3.5-turbo-1106
-  #   config:
-  #     organization: ""
-  #     temperature: 0.5
-  #     max_tokens: 1024
-  #     top_p: 1
-  #     frequency_penalty: 0
-  #     presence_penalty: 0
   # - id: openai:gpt-4-1106-preview
-  #   config:
-  #     organization: ""
-  #     temperature: 0.5
-  #     max_tokens: 1024
-  #     top_p: 1
-  #     frequency_penalty: 0
-  #     presence_penalty: 0
   # - id: vertex:gemini-pro
-  #   config:
-  #     temperature: 0.5
-  #     max_tokens: 2048
+
+  # Local On Device LLMs
+  # - id: ../custom_models/mistral-7b-v0.1-Q4.js
+  # - id: ../custom_models/mistral-7b-v0.2-Q5.js
+  # - id: ../custom_models/phi-2.Q5_K_M.js
+  # - id: ../custom_models/rocket-3b.Q5_K_M.js
+  # - id: ../custom_models/TinyLlama-1.1B-Chat-v1.0.Q5_K_M.js - weird results
+
 
 evaluateOptions:
-  repeat: 3
+  repeat: 1
 
 prompts: prompt.txt
 tests: test*.yaml

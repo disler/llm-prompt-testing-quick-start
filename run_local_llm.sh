@@ -26,7 +26,7 @@ CREATE TABLE users (
 SQL Statement:
 "
 
-# ./custom_models/mistral-7b-instruct-v0.2.Q5_K_M.llamafile -p "[INST]$prompt[/INST]" --log-disable
+./custom_models/mistral-7b-instruct-v0.2.Q5_K_M.llamafile -p "[INST]$prompt[/INST]" --log-disable
 # ./custom_models/mistral-7b-instruct-v0.1-Q4_K_M-main.llamafile  -p "[INST]$prompt[/INST]" --log-disable
 # ./custom_models/phi-2.Q5_K_M.llamafile -p "$prompt" --log-disable
 # ./custom_models/rocket-3b.Q5_K_M.llamafile -p "$prompt" --log-disable

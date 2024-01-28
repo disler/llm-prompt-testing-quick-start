@@ -18,6 +18,8 @@ class CustomModelBase {
 
         // set this to be a short name
         this.model_short_name = ''
+
+        this.prompt_suffix = 'OUTPUT ->'
     }
   
     id() {
@@ -28,7 +30,19 @@ class CustomModelBase {
      * Customize prompt before running it. Some models may require special formatting [INST]...[/INST]
      */
     customizePrompt(prompt) {
-        return prompt
+        return `${prompt} ${this.prompt_suffix}`
+    }
+
+    /**
+     * Customize the raw response before returning it to the user. Some models may require special parsing.
+     */
+    customizeParse(rawResponse) {
+      // parse everything after the first OUTPUT:
+      const split = rawResponse.split(this.prompt_suffix)
+      if (split.length > 1) {
+        return split[1].trim()
+      }
+      return rawResponse
     }
     
     async runPrompt(prompt, temp = 0.3) {
@@ -65,7 +79,7 @@ class CustomModelBase {
     async callApi(prompt, context) {
         // Add your custom API logic here
         // Use options like: `this.config.temperature`, `this.config.max_tokens`, etc.
-        console.log('Vars for this test case:', JSON.stringify(context.vars));
+        // console.log('Vars for this test case:', JSON.stringify(context.vars));
 
         const rawOutput = await this.runPrompt(prompt, this.config?.temperature || 0.5);
 
@@ -73,11 +87,11 @@ class CustomModelBase {
 
         this.dumpToLog(rawOutput, "raw_output", context.vars.id, timeBasedUniqueId)
 
-        // get everything after [/INST] including new lines
-        const regex = /\[\/INST\](.*)/s;
-        const output = regex.exec(rawOutput)[1];
+        const parsedOutput = this.customizeParse(rawOutput)
 
-        this.dumpToLog(output, "parsed_output", context.vars.id, timeBasedUniqueId)
+        this.dumpToLog(parsedOutput, "parsed_output", context.vars.id, timeBasedUniqueId)
+
+        const output = parsedOutput;
 
         const totalLen = prompt.length + output.length;
         const promptLen = prompt.length;

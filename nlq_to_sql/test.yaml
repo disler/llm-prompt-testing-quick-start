@@ -1,0 +1,54 @@
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select user with id 5
+    db: "postgres"
+    id: "0"
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "5"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select 5 users
+    db: "postgres"
+    id: 1
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "limit", "5"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select just 5 users
+    db: "postgres"
+    id: 2
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "limit", "5"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select all user fields
+    db: "postgres"
+    id: 3
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select all authed users
+    db: "postgres"
+    id: 4
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "authed", "true"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select all authed users with 'Premium' plans
+    db: "postgres"
+    id: 5
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "authed", "true", "plan", "Premium"]

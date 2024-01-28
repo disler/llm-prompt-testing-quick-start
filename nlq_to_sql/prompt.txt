@@ -19,4 +19,4 @@ CREATE TABLE users (
     email TEXT
 );
 
-SQL Statement
+SQL Statement: 

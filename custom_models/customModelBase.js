@@ -44,23 +44,6 @@ class CustomModelBase {
       }
       return rawResponse
     }
-    
-    async runPrompt(prompt, temp = 0.3) {
-        return new Promise((resolve, reject) => {
-            const scriptPath = path.resolve(__dirname, this.model_file_name);
-            const customizedPrompt = this.customizePrompt(prompt)
-            const shellCommand = `"${scriptPath}" --temp ${temp} -p "${customizedPrompt}"`;
-
-            exec(shellCommand, (err, stdout, stderr) => {
-                if (err) {
-                    reject(err);
-                    return;
-                }
-                console.log(`stdout`, stdout)
-                resolve(stdout);
-            });
-        });
-    }
 
     dumpToLog(output, prefix, id, timeBasedUniqueId) {
       const uniqueId = id ? `${id}_${timeBasedUniqueId}` : timeBasedUniqueId ;
@@ -76,6 +59,22 @@ class CustomModelBase {
         fs.writeFileSync(writePath, output);
     }
   
+    async runPrompt(prompt, temp = 0.3) {
+      return new Promise((resolve, reject) => {
+          const scriptPath = path.resolve(__dirname, this.model_file_name);
+          const customizedPrompt = this.customizePrompt(prompt)
+          const shellCommand = `"${scriptPath}" --temp ${temp} -p "${customizedPrompt}"`;
+
+          exec(shellCommand, (err, stdout, stderr) => {
+              if (err) {
+                  reject(err);
+                  return;
+              }
+              console.log(`stdout`, stdout)
+              resolve(stdout);
+          });
+      });
+  }
     async callApi(prompt, context) {
         // Add your custom API logic here
         // Use options like: `this.config.temperature`, `this.config.max_tokens`, etc.

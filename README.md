@@ -1,6 +1,7 @@
 # LLM Evaluation & Testing quick start with Promptfoo
 > Better, Faster, Cheaper Prompts with LLM Testing & Evaluation
 
+![Local On Device LLMs Are The Future](imgs/local-on-device-llms-are-the-future-but-not-yet.png)
 ![Gemini Pro vs GPT-3.5 Turbo](imgs/prompt-testing-gemini-vs-gpt-3.5-turbo.png)
 ![Fast, Cheap, Accurate](imgs/fast-cheap-accurate-prompt-testing-with-promptfoo.png)
 
@@ -18,14 +19,21 @@
 - cd into the directory you want to test
 - Run `promptfoo eval` to evaluate
 
-### Install llamafile local models
+### Install llamafile to test local models
+> You can reuse the `./custom_models/customModelBase.js` to test llama models locally. Or you can create a new .js file for your model. See [promptfoo custom model docs](https://www.promptfoo.dev/docs/providers/custom-api).
 - Read the instructions here and download the llama files
   - https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#quickstart
   - I recommend installing `mistral-7b-instruct-v0.1-Q4_K_M-main.llamafile` for the best results for 4GB models
 - Place the model into the custom_models/ directory
-- Add the path to the model in the ./\*/promptfooconfig.yaml providers section
 - Make sure the name of your model file matches the 
-- QQQ finish this
+- Create a <your model name>.js file in custom_models/ for your model and inherit the CustomModelBase class. Use `custom_models/mistral-7b-v0.1-Q4.js` as a template.
+- Add the path to the `custom_models/<your model name>.js` in the ./\*/promptfooconfig.yaml providers section
+- Run `promptfoo eval` to evaluate your model
+
+
+
+### Quickly test your prompts on different custom_models - 
+- Use the `sh run_local_llm.sh` script to quickly test prompts on different custom_models. Update the prompt variable to be whatever prompt you want to test.
 
 *If you want to run OpenAI exclusively comment out other models in the ./\*/promptfooconfig.yaml providers section.*
 
@@ -43,9 +51,10 @@
 - Assertions
 - Variables
 
-## Watch the video tutorial
+## Watch the video tutorials
 - Check out the brief [Video Tutorial](https://youtu.be/KhINc5XwhKs) where we highlight the key features of Promptfoo and how to get started with this repo.
 - Compare [Gemini Pro vs GPT-3.5 Turbo](https://youtu.be/V_SyO0t7TZY) with Promptfoo.
+- Monitor the performance of [Local, On Device LLMs](https://youtu.be/urymhRw86Fc) with prompt testing
 
 ## Use Cases & Value Prop of LLM Testing & Evaluation
 
@@ -63,11 +72,11 @@
   - With version control and CI/CD you can ensure your prompts are always working as expected
 
 ## Organizational Pattern
-- `/<name of agent 1>`
+- `/<name of agent/test 1>`
   - `/prompt.txt` - the prompt(s) to test
   - `/test.yaml` - variables and assertions
   - `/promptfooconfig.yaml` - llm config
-- `/<name of agent N>`
+- `/<name of agent/test N>`
   - `...`
 - `...`
 

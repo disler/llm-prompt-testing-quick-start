@@ -1,20 +1,20 @@
-description: "Is NLQ Agent Prompt"
+description: "NLQ to SQL"
 providers: 
   # Cloud LLMs
-  # - id: openai:gpt-3.5-turbo-1106
+  - id: openai:gpt-3.5-turbo-1106
   # - id: openai:gpt-4-1106-preview
+  # - id: openai:chat:gpt-4-0125-preview # NEW TURBO 4 MODEL
   # - id: vertex:gemini-pro
 
   # Local On Device LLMs
+  - id: ../custom_models/mistral-7b-v0.2-Q5.js
   # - id: ../custom_models/mistral-7b-v0.1-Q4.js
-  # - id: ../custom_models/mistral-7b-v0.2-Q5.js
   # - id: ../custom_models/phi-2.Q5_K_M.js
   # - id: ../custom_models/rocket-3b.Q5_K_M.js
   # - id: ../custom_models/TinyLlama-1.1B-Chat-v1.0.Q5_K_M.js - weird results
 
-
 evaluateOptions:
-  repeat: 1
+  repeat: 5
 
 prompts: prompt.txt
 tests: test*.yaml

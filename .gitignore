@@ -1,3 +1,6 @@
 custom_models/*.llamafile
+custom_models/*.gguf
 *.log
 logs/
+
+*.zip

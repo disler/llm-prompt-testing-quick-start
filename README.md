@@ -5,6 +5,12 @@
 ![Gemini Pro vs GPT-3.5 Turbo](imgs/prompt-testing-gemini-vs-gpt-3.5-turbo.png)
 ![Fast, Cheap, Accurate](imgs/fast-cheap-accurate-prompt-testing-with-promptfoo.png)
 
+## Update on format
+- In EXPERIMENT Branch We're modernizing things a little bit
+- Run commands explicitly from package.json
+- Use the promptfoo library and additional node modules inside code (for grok and dotenv etc)
+- use .env and dotenv
+
 ## Setup
 
 - Install promptfoo

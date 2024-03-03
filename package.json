@@ -1,0 +1,17 @@
+{
+  "name": "nlq_to_sql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "nlq_to_sql": "promptfoo eval -c ./nlq_to_sql/promptfooconfig.yaml -t ./nlq_to_sql/test.yaml -p ./nlq_to_sql/prompt.txt",
+    "view": "promptfoo view"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "groq-sdk": "^0.3.1",
+    "promptfoo": "^0.43.1"
+  }
+}

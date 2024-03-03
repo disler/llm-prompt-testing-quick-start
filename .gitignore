@@ -4,3 +4,5 @@ custom_models/*.gguf
 logs/
 
 *.zip
+
+.env

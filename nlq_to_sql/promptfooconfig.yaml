@@ -5,16 +5,14 @@ providers:
   # - id: openai:gpt-4-1106-preview
   # - id: openai:chat:gpt-4-0125-preview # NEW TURBO 4 MODEL
   # - id: vertex:gemini-pro
+  - id: ./custom_models/groq-mistral.js
 
   # Local On Device LLMs
-  - id: ../custom_models/mistral-7b-v0.2-Q5.js
+  # - id: ./custom_models/mistral-7b-v0.2-Q5.js
   # - id: ../custom_models/mistral-7b-v0.1-Q4.js
   # - id: ../custom_models/phi-2.Q5_K_M.js
   # - id: ../custom_models/rocket-3b.Q5_K_M.js
   # - id: ../custom_models/TinyLlama-1.1B-Chat-v1.0.Q5_K_M.js - weird results
 
 evaluateOptions:
-  repeat: 5
-
-prompts: prompt.txt
-tests: test*.yaml
+  repeat: 1

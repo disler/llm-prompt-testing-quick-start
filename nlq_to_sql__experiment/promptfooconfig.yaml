@@ -1,14 +1,15 @@
 description: "NLQ to SQL"
 providers: 
   # Cloud LLMs
-  # - id: openai:gpt-3.5-turbo-1106
-  # - id: openai:gpt-4-1106-preview
+  - id: openai:gpt-3.5-turbo-0125
+  - id: openai:gpt-3.5-turbo-1106
+  - id: openai:gpt-4-1106-preview
   # - id: openai:chat:gpt-4-0125-preview # NEW TURBO 4 MODEL
   # - id: vertex:gemini-pro
 
   # Local On Device LLMs
-  - id: ../custom_models/mistral-7b-v0.2-Q5.js
-  - id: ../custom_models/dolphin-2.5-mixtral-8x7b.Q2_K.js
+  # - id: ../custom_models/mistral-7b-v0.2-Q5.js
+  # - id: ../custom_models/dolphin-2.5-mixtral-8x7b.Q2_K.js
   # - id: ../custom_models/mistral-7b-v0.1-Q4.js
   # - id: ../custom_models/phi-2.Q5_K_M.js
   # - id: ../custom_models/rocket-3b.Q5_K_M.js

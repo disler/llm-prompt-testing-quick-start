@@ -3,6 +3,7 @@ custom_models/*.gguf
 *.log
 logs/
 
+node_modules/
 *.zip
 
 .env

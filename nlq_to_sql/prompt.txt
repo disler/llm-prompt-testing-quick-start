@@ -6,6 +6,7 @@ INSTRUCTIONS:
 - USE THE TABLE DEFINITIONS TO GENERATE THE SQL
 - DO NOT CHANGE ANY CONTENT WITHIN STRINGS OF THE Natural Language Query
 - Exclusively respond with the SQL query needed to satisfy the request and nothing else
+- Prefer * for SELECT statements unless the user specifies a column
 
 TABLE_DEFINITIONS: 
 

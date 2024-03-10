@@ -70,6 +70,10 @@
   },
 ```
 
+### Promptfoo delay if you run into API rate limit issues (anthropic + grok)
+- You can set a delay between prompt tests by using the `PROMPTFOO_DELAY_MS` env variable.
+- [Delay Docs](https://www.promptfoo.dev/docs/providers/openai/#openai-rate-limits)
+
 ### Install llamafile to test local models
 > You can reuse the `./custom_models/customModelBase.js` to test llama models locally. Or you can create a new .js file for your model. See [promptfoo custom model docs](https://www.promptfoo.dev/docs/providers/custom-api).
 - Read the instructions here and download the llama files

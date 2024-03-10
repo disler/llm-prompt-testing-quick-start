@@ -8,6 +8,6 @@ node_modules/
 
 .env
 
-.json
+*.json
 
 .DS_Store

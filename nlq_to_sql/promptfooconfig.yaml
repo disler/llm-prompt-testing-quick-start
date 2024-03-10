@@ -26,10 +26,10 @@ providers:
 
 # speedsters
   - id: openai:gpt-3.5-turbo-1106
-  - id: openai:chat:mixtral-8x7b-32768
-    config:
-      apiBaseUrl: https://api.groq.com/openai/v1
-      apiKeyEnvar: GROQ_API_KEY
+  # - id: openai:chat:mixtral-8x7b-32768
+  #   config:
+  #     apiBaseUrl: https://api.groq.com/openai/v1
+  #     apiKeyEnvar: GROQ_API_KEY
   # - id: ./custom_models/groq-mistral.js
 
 

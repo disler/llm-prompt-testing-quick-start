@@ -1,4 +1,4 @@
-# LLM Evaluation & Testing quick start with Promptfoo
+# LLM Evaluation & Testing quick start with [Promptfoo](https://www.promptfoo.dev)
 > Better, Faster, Cheaper Prompts with LLM Testing & Evaluation
 
 ![Last LLM Standing Wins](imgs/last-llm-standing-wins.png)

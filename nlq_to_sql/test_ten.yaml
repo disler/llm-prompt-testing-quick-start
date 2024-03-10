@@ -1,0 +1,90 @@
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select user with id 5
+    db: "postgres"
+    id: "0"
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "5"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select 5 users
+    db: "postgres"
+    id: 1
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "limit", "5"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select just 5 users
+    db: "postgres"
+    id: 2
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "limit", "5"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select all user fields
+    db: "postgres"
+    id: 3
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select all authed users
+    db: "postgres"
+    id: 4
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "authed", "true"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select all authed users with 'Premium' plans
+    db: "postgres"
+    id: 5
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "authed", "true", "plan", "Premium"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select users created after January 1, 2022
+    db: "postgres"
+    id: 6
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "where", "created", ">", "'2022-01-01'"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select the top 3 users by most recent update
+    db: "postgres"
+    id: 7
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "order", "by", "updated", "desc", "limit", "3"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select user names and emails of non-authed users
+    db: "postgres"
+    id: 8
+  assert:
+    - type: icontains-all
+      value: ["select", "name", "email", "from", "users", "where", "authed", "false"]
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select users with 'Basic' plan who were created before 2021
+    db: "postgres"
+    id: 9
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "where", "plan", "=", "'Basic'", "and", "created", "<", "2021-01-01"]

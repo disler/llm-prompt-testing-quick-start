@@ -1,0 +1,338 @@
+{
+  "results": {
+    "version": 2,
+    "results": [
+      {
+        "provider": {
+          "id": "openai:gpt-3.5-turbo-1106"
+        },
+        "prompt": {
+          "raw": "Given this natural language query: 'select user with id 5\n', generate the SQL using postgres dialect that satisfies the request. Use the TABLE_DEFINITIONS below to satisfy the database query. Follow the INSTRUCTIONS.\n\nINSTRUCTIONS:\n\n- ENSURE THE SQL IS VALID FOR THE DIALECT\n- USE THE TABLE DEFINITIONS TO GENERATE THE SQL\n- DO NOT CHANGE ANY CONTENT WITHIN STRINGS OF THE Natural Language Query\n- Exclusively respond with the SQL query needed to satisfy the request and nothing else\n- Prefer * for SELECT statements unless the user specifies a column\n\nTABLE_DEFINITIONS: \n\nCREATE TABLE users (\n    id INT,\n    created TIMESTAMP,\n    updated TIMESTAMP,\n    authed BOOLEAN,\n    PLAN TEXT,\n    name TEXT,\n    email TEXT\n);\n\nSQL Statement:",
+          "display": "Given this natural language query: '{{nlq}}', generate the SQL using {{db}} dialect that satisfies the request. Use the TABLE_DEFINITIONS below to satisfy the database query. Follow the INSTRUCTIONS.\n\nINSTRUCTIONS:\n\n- ENSURE THE SQL IS VALID FOR THE DIALECT\n- USE THE TABLE DEFINITIONS TO GENERATE THE SQL\n- DO NOT CHANGE ANY CONTENT WITHIN STRINGS OF THE Natural Language Query\n- Exclusively respond with the SQL query needed to satisfy the request and nothing else\n- Prefer * for SELECT statements unless the user specifies a column\n\nTABLE_DEFINITIONS: \n\nCREATE TABLE users (\n    id INT,\n    created TIMESTAMP,\n    updated TIMESTAMP,\n    authed BOOLEAN,\n    PLAN TEXT,\n    name TEXT,\n    email TEXT\n);\n\nSQL Statement:"
+        },
+        "vars": {
+          "nlq": "select user with id 5\n",
+          "db": "postgres",
+          "id": "0"
+        },
+        "response": {
+          "output": "SELECT * FROM users WHERE id = 5;",
+          "tokenUsage": {
+            "total": 178,
+            "prompt": 168,
+            "completion": 10
+          },
+          "cached": false,
+          "cost": 0.000099
+        },
+        "success": true,
+        "score": 1,
+        "namedScores": {},
+        "latencyMs": 476,
+        "cost": 0.000099,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "namedScores": {},
+          "reason": "All assertions passed",
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "icontains-all",
+                "value": [
+                  "select",
+                  "*",
+                  "from",
+                  "users",
+                  "5"
+                ]
+              }
+            }
+          ],
+          "assertion": null
+        }
+      },
+      {
+        "provider": {
+          "id": "openai:chat:mixtral-8x7b-32768"
+        },
+        "prompt": {
+          "raw": "Given this natural language query: 'select user with id 5\n', generate the SQL using postgres dialect that satisfies the request. Use the TABLE_DEFINITIONS below to satisfy the database query. Follow the INSTRUCTIONS.\n\nINSTRUCTIONS:\n\n- ENSURE THE SQL IS VALID FOR THE DIALECT\n- USE THE TABLE DEFINITIONS TO GENERATE THE SQL\n- DO NOT CHANGE ANY CONTENT WITHIN STRINGS OF THE Natural Language Query\n- Exclusively respond with the SQL query needed to satisfy the request and nothing else\n- Prefer * for SELECT statements unless the user specifies a column\n\nTABLE_DEFINITIONS: \n\nCREATE TABLE users (\n    id INT,\n    created TIMESTAMP,\n    updated TIMESTAMP,\n    authed BOOLEAN,\n    PLAN TEXT,\n    name TEXT,\n    email TEXT\n);\n\nSQL Statement:",
+          "display": "Given this natural language query: '{{nlq}}', generate the SQL using {{db}} dialect that satisfies the request. Use the TABLE_DEFINITIONS below to satisfy the database query. Follow the INSTRUCTIONS.\n\nINSTRUCTIONS:\n\n- ENSURE THE SQL IS VALID FOR THE DIALECT\n- USE THE TABLE DEFINITIONS TO GENERATE THE SQL\n- DO NOT CHANGE ANY CONTENT WITHIN STRINGS OF THE Natural Language Query\n- Exclusively respond with the SQL query needed to satisfy the request and nothing else\n- Prefer * for SELECT statements unless the user specifies a column\n\nTABLE_DEFINITIONS: \n\nCREATE TABLE users (\n    id INT,\n    created TIMESTAMP,\n    updated TIMESTAMP,\n    authed BOOLEAN,\n    PLAN TEXT,\n    name TEXT,\n    email TEXT\n);\n\nSQL Statement:"
+        },
+        "vars": {
+          "nlq": "select user with id 5\n",
+          "db": "postgres",
+          "id": "0"
+        },
+        "response": {
+          "output": "SELECT * FROM users WHERE id = 5;",
+          "tokenUsage": {
+            "total": 233,
+            "prompt": 221,
+            "completion": 12
+          },
+          "cached": false
+        },
+        "success": true,
+        "score": 1,
+        "namedScores": {},
+        "latencyMs": 2072,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "namedScores": {},
+          "reason": "All assertions passed",
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "icontains-all",
+                "value": [
+                  "select",
+                  "*",
+                  "from",
+                  "users",
+                  "5"
+                ]
+              }
+            }
+          ],
+          "assertion": null
+        }
+      }
+    ],
+    "stats": {
+      "successes": 2,
+      "failures": 0,
+      "tokenUsage": {
+        "total": 411,
+        "prompt": 389,
+        "completion": 22,
+        "cached": 0
+      }
+    },
+    "table": {
+      "head": {
+        "prompts": [
+          {
+            "raw": "Given this natural language query: '{{nlq}}', generate the SQL using {{db}} dialect that satisfies the request. Use the TABLE_DEFINITIONS below to satisfy the database query. Follow the INSTRUCTIONS.\n\nINSTRUCTIONS:\n\n- ENSURE THE SQL IS VALID FOR THE DIALECT\n- USE THE TABLE DEFINITIONS TO GENERATE THE SQL\n- DO NOT CHANGE ANY CONTENT WITHIN STRINGS OF THE Natural Language Query\n- Exclusively respond with the SQL query needed to satisfy the request and nothing else\n- Prefer * for SELECT statements unless the user specifies a column\n\nTABLE_DEFINITIONS: \n\nCREATE TABLE users (\n    id INT,\n    created TIMESTAMP,\n    updated TIMESTAMP,\n    authed BOOLEAN,\n    PLAN TEXT,\n    name TEXT,\n    email TEXT\n);\n\nSQL Statement:",
+            "display": "Given this natural language query: '{{nlq}}', generate the SQL using {{db}} dialect that satisfies the request. Use the TABLE_DEFINITIONS below to satisfy the database query. Follow the INSTRUCTIONS.\n\nINSTRUCTIONS:\n\n- ENSURE THE SQL IS VALID FOR THE DIALECT\n- USE THE TABLE DEFINITIONS TO GENERATE THE SQL\n- DO NOT CHANGE ANY CONTENT WITHIN STRINGS OF THE Natural Language Query\n- Exclusively respond with the SQL query needed to satisfy the request and nothing else\n- Prefer * for SELECT statements unless the user specifies a column\n\nTABLE_DEFINITIONS: \n\nCREATE TABLE users (\n    id INT,\n    created TIMESTAMP,\n    updated TIMESTAMP,\n    authed BOOLEAN,\n    PLAN TEXT,\n    name TEXT,\n    email TEXT\n);\n\nSQL Statement:",
+            "id": "58e3e0457e6dcc5976776ee52bf2a3dd1ab9384912a31e8806ef511b576f934b",
+            "provider": "openai:gpt-3.5-turbo-1106",
+            "metrics": {
+              "score": 1,
+              "testPassCount": 1,
+              "testFailCount": 0,
+              "assertPassCount": 1,
+              "assertFailCount": 0,
+              "totalLatencyMs": 476,
+              "tokenUsage": {
+                "total": 178,
+                "prompt": 168,
+                "completion": 10,
+                "cached": 0
+              },
+              "namedScores": {},
+              "cost": 0.000099
+            }
+          },
+          {
+            "raw": "Given this natural language query: '{{nlq}}', generate the SQL using {{db}} dialect that satisfies the request. Use the TABLE_DEFINITIONS below to satisfy the database query. Follow the INSTRUCTIONS.\n\nINSTRUCTIONS:\n\n- ENSURE THE SQL IS VALID FOR THE DIALECT\n- USE THE TABLE DEFINITIONS TO GENERATE THE SQL\n- DO NOT CHANGE ANY CONTENT WITHIN STRINGS OF THE Natural Language Query\n- Exclusively respond with the SQL query needed to satisfy the request and nothing else\n- Prefer * for SELECT statements unless the user specifies a column\n\nTABLE_DEFINITIONS: \n\nCREATE TABLE users (\n    id INT,\n    created TIMESTAMP,\n    updated TIMESTAMP,\n    authed BOOLEAN,\n    PLAN TEXT,\n    name TEXT,\n    email TEXT\n);\n\nSQL Statement:",
+            "display": "Given this natural language query: '{{nlq}}', generate the SQL using {{db}} dialect that satisfies the request. Use the TABLE_DEFINITIONS below to satisfy the database query. Follow the INSTRUCTIONS.\n\nINSTRUCTIONS:\n\n- ENSURE THE SQL IS VALID FOR THE DIALECT\n- USE THE TABLE DEFINITIONS TO GENERATE THE SQL\n- DO NOT CHANGE ANY CONTENT WITHIN STRINGS OF THE Natural Language Query\n- Exclusively respond with the SQL query needed to satisfy the request and nothing else\n- Prefer * for SELECT statements unless the user specifies a column\n\nTABLE_DEFINITIONS: \n\nCREATE TABLE users (\n    id INT,\n    created TIMESTAMP,\n    updated TIMESTAMP,\n    authed BOOLEAN,\n    PLAN TEXT,\n    name TEXT,\n    email TEXT\n);\n\nSQL Statement:",
+            "id": "58e3e0457e6dcc5976776ee52bf2a3dd1ab9384912a31e8806ef511b576f934b",
+            "provider": "openai:chat:mixtral-8x7b-32768",
+            "metrics": {
+              "score": 1,
+              "testPassCount": 1,
+              "testFailCount": 0,
+              "assertPassCount": 1,
+              "assertFailCount": 0,
+              "totalLatencyMs": 2072,
+              "tokenUsage": {
+                "total": 233,
+                "prompt": 221,
+                "completion": 12,
+                "cached": 0
+              },
+              "namedScores": {},
+              "cost": 0
+            }
+          }
+        ],
+        "vars": [
+          "db",
+          "id",
+          "nlq"
+        ]
+      },
+      "body": [
+        {
+          "description": "NLQ to SQL",
+          "outputs": [
+            {
+              "pass": true,
+              "score": 1,
+              "namedScores": {},
+              "text": "SELECT * FROM users WHERE id = 5;",
+              "prompt": "Given this natural language query: 'select user with id 5\n', generate the SQL using postgres dialect that satisfies the request. Use the TABLE_DEFINITIONS below to satisfy the database query. Follow the INSTRUCTIONS.\n\nINSTRUCTIONS:\n\n- ENSURE THE SQL IS VALID FOR THE DIALECT\n- USE THE TABLE DEFINITIONS TO GENERATE THE SQL\n- DO NOT CHANGE ANY CONTENT WITHIN STRINGS OF THE Natural Language Query\n- Exclusively respond with the SQL query needed to satisfy the request and nothing else\n- Prefer * for SELECT statements unless the user specifies a column\n\nTABLE_DEFINITIONS: \n\nCREATE TABLE users (\n    id INT,\n    created TIMESTAMP,\n    updated TIMESTAMP,\n    authed BOOLEAN,\n    PLAN TEXT,\n    name TEXT,\n    email TEXT\n);\n\nSQL Statement:",
+              "provider": "openai:gpt-3.5-turbo-1106",
+              "latencyMs": 476,
+              "tokenUsage": {
+                "total": 178,
+                "prompt": 168,
+                "completion": 10
+              },
+              "gradingResult": {
+                "pass": true,
+                "score": 1,
+                "namedScores": {},
+                "reason": "All assertions passed",
+                "tokensUsed": {
+                  "total": 0,
+                  "prompt": 0,
+                  "completion": 0
+                },
+                "componentResults": [
+                  {
+                    "pass": true,
+                    "score": 1,
+                    "reason": "Assertion passed",
+                    "assertion": {
+                      "type": "icontains-all",
+                      "value": [
+                        "select",
+                        "*",
+                        "from",
+                        "users",
+                        "5"
+                      ]
+                    }
+                  }
+                ],
+                "assertion": null
+              },
+              "cost": 0.000099
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "namedScores": {},
+              "text": "SELECT * FROM users WHERE id = 5;",
+              "prompt": "Given this natural language query: 'select user with id 5\n', generate the SQL using postgres dialect that satisfies the request. Use the TABLE_DEFINITIONS below to satisfy the database query. Follow the INSTRUCTIONS.\n\nINSTRUCTIONS:\n\n- ENSURE THE SQL IS VALID FOR THE DIALECT\n- USE THE TABLE DEFINITIONS TO GENERATE THE SQL\n- DO NOT CHANGE ANY CONTENT WITHIN STRINGS OF THE Natural Language Query\n- Exclusively respond with the SQL query needed to satisfy the request and nothing else\n- Prefer * for SELECT statements unless the user specifies a column\n\nTABLE_DEFINITIONS: \n\nCREATE TABLE users (\n    id INT,\n    created TIMESTAMP,\n    updated TIMESTAMP,\n    authed BOOLEAN,\n    PLAN TEXT,\n    name TEXT,\n    email TEXT\n);\n\nSQL Statement:",
+              "provider": "openai:chat:mixtral-8x7b-32768",
+              "latencyMs": 2072,
+              "tokenUsage": {
+                "total": 233,
+                "prompt": 221,
+                "completion": 12
+              },
+              "gradingResult": {
+                "pass": true,
+                "score": 1,
+                "namedScores": {},
+                "reason": "All assertions passed",
+                "tokensUsed": {
+                  "total": 0,
+                  "prompt": 0,
+                  "completion": 0
+                },
+                "componentResults": [
+                  {
+                    "pass": true,
+                    "score": 1,
+                    "reason": "Assertion passed",
+                    "assertion": {
+                      "type": "icontains-all",
+                      "value": [
+                        "select",
+                        "*",
+                        "from",
+                        "users",
+                        "5"
+                      ]
+                    }
+                  }
+                ],
+                "assertion": null
+              },
+              "cost": 0
+            }
+          ],
+          "test": {
+            "description": "NLQ to SQL",
+            "vars": {
+              "nlq": "select user with id 5\n",
+              "db": "postgres",
+              "id": "0"
+            },
+            "assert": [
+              {
+                "type": "icontains-all",
+                "value": [
+                  "select",
+                  "*",
+                  "from",
+                  "users",
+                  "5"
+                ]
+              }
+            ],
+            "options": {}
+          },
+          "vars": [
+            "postgres",
+            "0",
+            "select user with id 5\n"
+          ]
+        }
+      ]
+    }
+  },
+  "config": {
+    "description": "NLQ to SQL",
+    "prompts": [
+      "./nlq_to_sql/prompt.txt"
+    ],
+    "providers": [
+      {
+        "id": "openai:gpt-3.5-turbo-1106"
+      },
+      {
+        "id": "openai:chat:mixtral-8x7b-32768",
+        "config": {
+          "apiBaseUrl": "https://api.groq.com/openai/v1",
+          "apiKeyEnvar": "GROQ_API_KEY"
+        }
+      }
+    ],
+    "tests": "./nlq_to_sql/test_one.yaml",
+    "scenarios": [],
+    "env": {},
+    "sharing": true,
+    "defaultTest": {
+      "vars": {},
+      "assert": [],
+      "options": {}
+    },
+    "outputPath": [
+      "./nlq_to_sql/output_one.json"
+    ]
+  },
+  "shareableUrl": null
+}

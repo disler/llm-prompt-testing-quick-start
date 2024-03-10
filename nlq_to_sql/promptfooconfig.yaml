@@ -1,12 +1,48 @@
 description: "NLQ to SQL"
 providers: 
+
+  # Bunch of random combos to test with
+
   # Cloud LLMs
+
+  # 4 way
   # - id: openai:gpt-3.5-turbo-1106
-  - id: ./custom_models/anthropic-api.js
-  # - id: openai:gpt-4-1106-preview
-  # - id: openai:chat:gpt-4-0125-preview # NEW TURBO 4 MODEL
   # - id: vertex:gemini-pro
+  # - id: anthropic:messages:claude-3-sonnet-20240229
   # - id: ./custom_models/groq-mistral.js
+
+  # top dogs 1v1
+  # - id: openai:chat:gpt-4-0125-preview
+  # - id: anthropic:messages:claude-3-opus-20240229
+  
+  # battle royal
+  # - id: ./custom_models/groq-mistral.js
+  # - id: openai:gpt-3.5-turbo-1106
+  # - id: openai:chat:gpt-4-0125-preview
+  # - id: vertex:gemini-pro
+  # - id: anthropic:messages:claude-3-sonnet-20240229
+  # - id: anthropic:messages:claude-3-opus-20240229
+  # - id: anthropic:messages:claude-2.1
+
+# speedsters
+  - id: openai:gpt-3.5-turbo-1106
+  - id: openai:chat:mixtral-8x7b-32768
+    config:
+      apiBaseUrl: https://api.groq.com/openai/v1
+      apiKeyEnvar: GROQ_API_KEY
+  # - id: ./custom_models/groq-mistral.js
+
+
+# # open ai
+#   - id: openai:chat:gpt-4-0125-preview
+#   - id: anthropic:messages:claude-3-opus-20240229
+
+  
+  # - id: vertex:gemini-ultra
+  # - id: anthropic:messages:claude-3-opus-20240229
+  # - id: openai:gpt-4-1106-preview
+  # - id: ./custom_models/anthropic-opus.js
+  # - id: openai:chat:gpt-4-0125-preview # NEW TURBO 4 MODEL
 
   # Local On Device LLMs
   # - id: ./custom_models/mistral-7b-v0.2-Q5.js

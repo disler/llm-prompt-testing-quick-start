@@ -1,0 +1,9 @@
+- description: "NLQ to SQL"
+  vars:
+    nlq: |
+      select user with id 5
+    db: "postgres"
+    id: "0"
+  assert:
+    - type: icontains-all
+      value: ["select", "*", "from", "users", "5"]

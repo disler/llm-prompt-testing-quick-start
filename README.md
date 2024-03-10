@@ -1,6 +1,7 @@
 # LLM Evaluation & Testing quick start with Promptfoo
 > Better, Faster, Cheaper Prompts with LLM Testing & Evaluation
 
+![Last LLM Standing Wins](imgs/last-llm-standing-wins.png)
 ![Local On Device LLMs Are The Future](imgs/local-on-device-llms-are-the-future-but-not-yet.png)
 ![Gemini Pro vs GPT-3.5 Turbo](imgs/prompt-testing-gemini-vs-gpt-3.5-turbo.png)
 ![Fast, Cheap, Accurate](imgs/fast-cheap-accurate-prompt-testing-with-promptfoo.png)
@@ -11,19 +12,63 @@
 - Use the promptfoo library and additional node modules inside code (for grok and dotenv etc)
 - use .env and dotenv
 
+## Watch the video tutorials
+- Last LLM Standing Wins [Video Walk Through](https://youtu.be/Cy1Z8J0anKw). In this video we build a visual LLM benchmarking tool built on top of Promptfoo.
+- Check out the brief [Video Tutorial](https://youtu.be/KhINc5XwhKs) where we highlight the key features of Promptfoo and how to get started with this repo.
+- Compare [Gemini Pro vs GPT-3.5 Turbo](https://youtu.be/V_SyO0t7TZY) with Promptfoo.
+- Monitor the performance of [Local, On Device LLMs](https://youtu.be/urymhRw86Fc) with prompt testing
+
+
 ## Setup
 
-- Install promptfoo
-  - `npm install -g promptfoo`
-  - [Install Docs](https://www.promptfoo.dev/docs/installation)
+### API Keys
+
 - To get started with OpenAI, set your OPENAI_API_KEY environment variable.
   - `export OPENAI_API_KEY=<your key>`
+  - [OpenAI Setup Docs](https://promptfoo.dev/docs/providers/openai)
 - To get started with Gemini, set your VERTEX_API_KEY environment variable.
   - `export VERTEX_API_KEY=<your key>`
   - `export VERTEX_PROJECT_ID=<your google cloud project id>`
   - [Gemini Setup Docs](https://promptfoo.dev/docs/providers/vertex)
+- To setup anthropic
+  - `export ANTHROPIC_API_KEY=<your key>
+  - [Anthropic Setup Docs](https://promptfoo.dev/docs/providers/anthropic)
+- To setup GROQ
+  - `export GROQ_API_KEY=`<your key>
+  - [Groq Setup Docs](https://promptfoo.dev/docs/providers/groq)
+
+### Global Install
+
+- Install promptfoo
+  - `npm install -g promptfoo`
+  - [Install Docs](https://www.promptfoo.dev/docs/installation)
 - cd into the directory you want to test
 - Run `promptfoo eval` to evaluate
+
+### Local Install
+- Install promptfoo
+  - `npm install promptfoo`
+  - [Install Docs](https://www.promptfoo.dev/docs/installation)
+- Update the `package.json` file to include the following scripts
+  - ```json
+    "scripts": {
+      "eval": "promptfoo eval -c `./path/to/your/promptfooconfig.yaml`",
+      "view": "promptfoo view"
+    }
+    ```
+  - See the package.json for examples
+
+### Opinionated Setup
+- I recommend using separate prompt.txt, test.txt, promptfooconfig.yaml with a dedicated directory and package.json script for each prompt you want to test.
+- This way you can create multiple test + prompt combinations.
+- For example this package.json: script section show cases running different tests
+```json
+"scripts": {
+    "nlq_to_sql_ten": "source .env && promptfoo eval -c ./nlq_to_sql/promptfooconfig.yaml -t ./nlq_to_sql/test_ten.yaml -p ./nlq_to_sql/prompt.txt --no-cache --output ./nlq_to_sql/output_ten.json",
+    "nlq_to_sql_twenty": "source .env && promptfoo eval -c ./nlq_to_sql/promptfooconfig.yaml -t ./nlq_to_sql/test_twenty.yaml -p ./nlq_to_sql/prompt.txt --no-cache --output ./nlq_to_sql/output_twenty.json",
+    "view": "promptfoo view"
+  },
+```
 
 ### Install llamafile to test local models
 > You can reuse the `./custom_models/customModelBase.js` to test llama models locally. Or you can create a new .js file for your model. See [promptfoo custom model docs](https://www.promptfoo.dev/docs/providers/custom-api).
@@ -56,11 +101,6 @@
 - Prompts
 - Assertions
 - Variables
-
-## Watch the video tutorials
-- Check out the brief [Video Tutorial](https://youtu.be/KhINc5XwhKs) where we highlight the key features of Promptfoo and how to get started with this repo.
-- Compare [Gemini Pro vs GPT-3.5 Turbo](https://youtu.be/V_SyO0t7TZY) with Promptfoo.
-- Monitor the performance of [Local, On Device LLMs](https://youtu.be/urymhRw86Fc) with prompt testing
 
 ## Use Cases & Value Prop of LLM Testing & Evaluation
 
